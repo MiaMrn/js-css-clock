@@ -7,16 +7,16 @@ function getHour() {
 
     let rotateSec = seconds * 6 + 90;
     let rotateMin = minutes * 6 + 90;
-    let rotateHou = hours * 30 + 90;
+    let rotateHou = (hours * 30 + 90) + (minutes / 360 * 30);
 
-    let secondsElt = document.querySelector(".seconds");
-    secondsElt.style.transform = `translate(-50%, -50%) rotate(${rotateSec}deg)`;
+    mouveHand(".seconds", rotateSec);
+    mouveHand(".minutes", rotateMin);
+    mouveHand(".hours", rotateHou);
 
-    let minutesElt = document.querySelector(".minutes");
-    minutesElt.style.transform = `translate(-50%, -50%) rotate(${rotateMin}deg)`;
-
-    let hoursElt = document.querySelector(".hours");
-    hoursElt.style.transform = `translate(-50%, -50%) rotate(${rotateHou}deg)`;
+    function mouveHand(div, rotation) {
+        let divElt = document.querySelector(div);
+        divElt.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+    }
 }
 
 window.setInterval(getHour, 1000);

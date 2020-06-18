@@ -32,6 +32,7 @@ body {
     height: 5px;
     background-color: transparent;
 
+
     &::before {
         content: "";
         position: absolute;
@@ -46,4 +47,15 @@ body {
 
 .hours {
     width: 60%;
+}
+
+.middle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $primaryColor;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
